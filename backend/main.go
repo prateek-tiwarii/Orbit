@@ -1,6 +1,8 @@
 package main
 
 import (
+	"backend/config"
+	"backend/routes"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -8,10 +10,12 @@ import (
 )
 
 func main() {
+
+	config.LoadEnv()
 	// Create a new Fiber app
-	app := fiber.New(fiber.Config{
-		AppName: "My Go API",
-	})
+	app := fiber.New()
+
+	routes.AuthRoutes(app)
 
 	app.Use(logger.New())
 
