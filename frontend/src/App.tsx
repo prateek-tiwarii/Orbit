@@ -1,5 +1,7 @@
+
 import Hero from "./components/common/Hero"
 import Navbar from "./components/common/NavBar"
+import { BentoDemo } from "./components/common/Works"
 
 
 function App() {
@@ -9,6 +11,8 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
+      {/* <ScrollBasedVelocityDemo/> */}
+      <BentoDemo/>
     </>
   )
 }

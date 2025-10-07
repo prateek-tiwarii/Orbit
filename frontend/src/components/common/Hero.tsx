@@ -2,7 +2,12 @@
 import { ChevronRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+
 import { AnimatedGradientText } from "@/registry/magicui/animated-gradient-text"
+import { ShinyButton } from "../ui/shiny-button";
+
+
+
 
 type AnimatedGradientTextDemoProps = {
   text: string;
@@ -64,6 +69,18 @@ const Hero = () => {
           className="w-full h-auto object-cover"
         />
       </div>
+
+      {/* Buttons */}
+      <div className="flex flex-col items-center -mt-96 space-y-1">
+      <img src='./wand.PNG' alt="Wand" className="flex justify-center z-10 w-3xl h-3xl " />
+      {/* <div className=" flex space-x-4 justify-center z-10 -mt-[520px]">
+
+       <ShinyButton>Get Started</ShinyButton>
+       <ShinyButton>Learn More</ShinyButton>
+      </div> */}
+
+      </div>
+
     </section>
   );
 };

@@ -1,0 +1,37 @@
+model User {
+    id        Int      @id @default(autoincrement())
+    name      String
+    email     String   @unique
+    events    Event[]
+    createdAt DateTime @default(now())
+}
+
+enum EventTag {
+    WEDDING
+    BIRTHDAY
+    ANNIVERSARY
+    PARTY
+    OTHER
+}
+
+model Event {
+    id          Int       @id @default(autoincrement())
+    title       String
+    description String?
+    date        DateTime?
+    venue       String?
+    tag         EventTag
+    user        User      @relation(fields: [userId], references: [id])
+    userId      Int
+    invites     Invite[]
+    createdAt   DateTime  @default(now())
+}
+
+model Invite {
+    id         Int      @id @default(autoincrement())
+    eventId    Int
+    event      Event    @relation(fields: [eventId], references: [id])
+    guestEmail String
+    status     String // “yes”, “no”, “maybe”
+    createdAt  DateTime @default(now())
+}
